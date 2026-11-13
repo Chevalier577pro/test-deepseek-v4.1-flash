@@ -855,7 +855,7 @@
       const blocks = sequences[lang] || sequences.fr;
       if (reducedMotion) { renderStatic(); return; }
       pre.innerHTML = '';
-      await wait(280);
+      await wait(180);
       if (token !== run) return;
       let out = '';
       for (const block of blocks) {
@@ -866,15 +866,15 @@
           for (const char of block.text) {
             if (token !== run) return;
             pre.innerHTML = prefix + char + '</span>\n' + caret;
-            await wait(30 + Math.random() * 30);
+            await wait(18 + Math.random() * 22);
           }
           out += block.text + '</span>\n';
           pre.innerHTML = out + caret;
-          await wait(180);
+          await wait(120);
         } else {
           out += `<span class="${block.cls}">${block.text}</span>\n`;
           pre.innerHTML = out + caret;
-          await wait(300);
+          await wait(190);
         }
       }
       if (token === run) pre.innerHTML = out + '<span class="t-prompt">$ </span>' + caret;
